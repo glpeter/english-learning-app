@@ -1,1 +1,130 @@
-{\n  "present_simple": [\n    {\n      "question": "I ___ (have) a cat.",\n      "options": ["have", "has"],\n      "answer": "have"\n    },\n    {\n      "question": "She ___ (work) at a bank.",\n      "options": ["work", "works"],\n      "answer": "works"\n    },\n    {\n      "question": "They ___ (eat) breakfast at 8 AM.",\n      "options": ["eat", "eats"],\n      "answer": "eat"\n    },\n    {\n      "question": "He ___ (drink) coffee every morning.",\n      "options": ["drink", "drinks"],\n      "answer": "drinks"\n    },\n    {\n      "question": "We ___ (clean) the house every weekend.",\n      "options": ["clean", "cleans"],\n      "answer": "clean"\n    },\n    {\n      "question": "You ___ (fill) the bottle with water.",\n      "options": ["fill", "fills"],\n      "answer": "fill"\n    }\n  ],\n  "present_continuous": [\n    {\n      "question": "I ___ (am) reading a book.",\n      "options": ["am", "is"],\n      "answer": "am"\n    },\n    {\n      "question": "She ___ (is) cooking dinner right now.",\n      "options": ["is", "are"],\n      "answer": "is"\n    },\n    {\n      "question": "They ___ (are) playing soccer at the park.",\n      "options": ["are", "is"],\n      "answer": "are"\n    },\n    {\n      "question": "He ___ (is) drinking juice.",\n      "options": ["is", "are"],\n      "answer": "is"\n    },\n    {\n      "question": "We ___ (are) cleaning the room right now.",\n      "options": ["am", "are"],\n      "answer": "are"\n    },\n    {\n      "question": "You ___ (are) filling the tank with gas.",\n      "options": ["are", "is"],\n      "answer": "are"\n    }\n  ],\n  "past_simple": [\n    {\n      "question": "I ___ (was) at the party last night.",\n      "options": ["was", "were"],\n      "answer": "was"\n    },\n    {\n      "question": "She ___ (worked) at the store yesterday.",\n      "options": ["worked", "works"],\n      "answer": "worked"\n    },\n    {\n      "question": "They ___ (ate) lunch at noon.",\n      "options": ["ate", "eat"],\n      "answer": "ate"\n    },\n    {\n      "question": "He ___ (drank) all the milk.",\n      "options": ["drank", "drinks"],\n      "answer": "drank"\n    },\n    {\n      "question": "We ___ (cleaned) the house last weekend.",\n      "options": ["cleaned", "cleans"],\n      "answer": "cleaned"\n    },\n    {\n      "question": "You ___ (filled) the jar with cookies.",\n      "options": ["filled", "fills"],\n      "answer": "filled"\n    }\n  ],\n  "past_continuous": [\n    {\n      "question": "I ___ (was) reading when you called.",\n      "options": ["was", "were"],\n      "answer": "was"\n    },\n    {\n      "question": "She ___ (was) cooking when I arrived.",\n      "options": ["was", "were"],\n      "answer": "was"\n    },\n    {\n      "question": "They ___ (were) playing soccer when it started to rain.",\n      "options": ["were", "was"],\n      "answer": "were"\n    },\n    {\n      "question": "He ___ (was) drinking coffee when the phone rang.",\n      "options": ["was", "were"],\n      "answer": "was"\n    },\n    {\n      "question": "We ___ (were) cleaning the house when the guests arrived.",\n      "options": ["were", "was"],\n      "answer": "were"\n    },\n    {\n      "question": "You ___ (were) filling the tank when I saw you.",\n      "options": ["were", "was"],\n      "answer": "were"\n    }\n  ]\n}
+{
+  "present_simple": [
+    {
+      "question": "I ___ (have) a cat.",
+      "options": ["have", "has"],
+      "answer": "have"
+    },
+    {
+      "question": "She ___ (work) at a bank.",
+      "options": ["work", "works"],
+      "answer": "works"
+    },
+    {
+      "question": "They ___ (eat) breakfast at 8 AM.",
+      "options": ["eat", "eats"],
+      "answer": "eat"
+    },
+    {
+      "question": "He ___ (drink) coffee every morning.",
+      "options": ["drink", "drinks"],
+      "answer": "drinks"
+    },
+    {
+      "question": "We ___ (clean) the house every weekend.",
+      "options": ["clean", "cleans"],
+      "answer": "clean"
+    },
+    {
+      "question": "You ___ (fill) the bottle with water.",
+      "options": ["fill", "fills"],
+      "answer": "fill"
+    }
+  ],
+  "present_continuous": [
+    {
+      "question": "I ___ (am) reading a book.",
+      "options": ["am", "is"],
+      "answer": "am"
+    },
+    {
+      "question": "She ___ (is) cooking dinner right now.",
+      "options": ["is", "are"],
+      "answer": "is"
+    },
+    {
+      "question": "They ___ (are) playing soccer at the park.",
+      "options": ["are", "is"],
+      "answer": "are"
+    },
+    {
+      "question": "He ___ (is) drinking juice.",
+      "options": ["is", "are"],
+      "answer": "is"
+    },
+    {
+      "question": "We ___ (are) cleaning the room right now.",
+      "options": ["am", "are"],
+      "answer": "are"
+    },
+    {
+      "question": "You ___ (are) filling the tank with gas.",
+      "options": ["are", "is"],
+      "answer": "are"
+    }
+  ],
+  "past_simple": [
+    {
+      "question": "I ___ (was) at the party last night.",
+      "options": ["was", "were"],
+      "answer": "was"
+    },
+    {
+      "question": "She ___ (worked) at the store yesterday.",
+      "options": ["worked", "works"],
+      "answer": "worked"
+    },
+    {
+      "question": "They ___ (ate) lunch at noon.",
+      "options": ["ate", "eat"],
+      "answer": "ate"
+    },
+    {
+      "question": "He ___ (drank) all the milk.",
+      "options": ["drank", "drinks"],
+      "answer": "drank"
+    },
+    {
+      "question": "We ___ (cleaned) the house last weekend.",
+      "options": ["cleaned", "cleans"],
+      "answer": "cleaned"
+    },
+    {
+      "question": "You ___ (filled) the jar with cookies.",
+      "options": ["filled", "fills"],
+      "answer": "filled"
+    }
+  ],
+  "past_continuous": [
+    {
+      "question": "I ___ (was) reading when you called.",
+      "options": ["was", "were"],
+      "answer": "was"
+    },
+    {
+      "question": "She ___ (was) cooking when I arrived.",
+      "options": ["was", "were"],
+      "answer": "was"
+    },
+    {
+      "question": "They ___ (were) playing soccer when it started to rain.",
+      "options": ["were", "was"],
+      "answer": "were"
+    },
+    {
+      "question": "He ___ (was) drinking coffee when the phone rang.",
+      "options": ["was", "were"],
+      "answer": "was"
+    },
+    {
+      "question": "We ___ (were) cleaning the house when the guests arrived.",
+      "options": ["were", "was"],
+      "answer": "were"
+    },
+    {
+      "question": "You ___ (were) filling the tank when I saw you.",
+      "options": ["were", "was"],
+      "answer": "were"
+    }
+  ]
+}
