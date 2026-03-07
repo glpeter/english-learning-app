@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego Interactivo: Elige la opción correcta</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background: #f5f7fb;
+        color: #1f2937;
+      }
+
+      .container {
+        max-width: 640px;
+        margin: 24px auto;
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: 1.5rem;
+      }
+
+      .status {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        font-weight: 700;
+      }
+
+      .question {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+      }
+
+      .options {
+        display: grid;
+        gap: 10px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 8px;
+        padding: 12px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .option-btn {
+        background: #eef2ff;
+        color: #312e81;
+      }
+
+      .option-btn:hover {
+        background: #e0e7ff;
+      }
+
+      .option-btn:disabled {
+        opacity: 0.8;
+        cursor: not-allowed;
+      }
+
+      .correct {
+        background: #d1fae5 !important;
+        color: #065f46;
+      }
+
+      .incorrect {
+        background: #fee2e2 !important;
+        color: #991b1b;
+      }
+
+      #feedback {
+        min-height: 24px;
+        margin-top: 16px;
+        font-weight: 700;
+      }
+
+      .controls {
+        margin-top: 12px;
+      }
+
+      #nextBtn,
+      #restartBtn {
+        background: #2563eb;
+        color: #fff;
+      }
+
+      #nextBtn[hidden],
+      #restartBtn[hidden] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Juego Interactivo: Elige la opción correcta</h1>
+      <p>Practica inglés seleccionando la respuesta correcta en cada pregunta.</p>
+
+      <section id="game" aria-live="polite">
+        <div class="status">
+          <span id="progress">Pregunta 1/5</span>
+          <span id="score">Puntaje: 0</span>
+        </div>
+
+        <p id="question" class="question"></p>
+        <div id="options" class="options"></div>
+        <p id="feedback"></p>
+
+        <div class="controls">
+          <button id="nextBtn" hidden>Siguiente</button>
+          <button id="restartBtn" hidden>Jugar de nuevo</button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const questions = [
+        {
+          prompt: "She ___ to school every day.",
+          options: ["go", "goes", "going"],
+          answer: "goes"
+        },
+        {
+          prompt: "They ___ soccer right now.",
+          options: ["play", "are playing", "played"],
+          answer: "are playing"
+        },
+        {
+          prompt: "I ___ my homework yesterday.",
+          options: ["finish", "finished", "am finishing"],
+          answer: "finished"
+        },
+        {
+          prompt: "We ___ dinner when you called.",
+          options: ["were having", "have", "had"],
+          answer: "were having"
+        },
+        {
+          prompt: "He ___ coffee every morning.",
+          options: ["drink", "drinks", "drank"],
+          answer: "drinks"
+        }
+      ];
+
+      const progressEl = document.getElementById("progress");
+      const scoreEl = document.getElementById("score");
+      const questionEl = document.getElementById("question");
+      const optionsEl = document.getElementById("options");
+      const feedbackEl = document.getElementById("feedback");
+      const nextBtn = document.getElementById("nextBtn");
+      const restartBtn = document.getElementById("restartBtn");
+      const gameCompleteMessage = "¡Juego terminado!";
+
+      let currentQuestionIndex = 0;
+      let score = 0;
+      let answered = false;
+
+      function renderQuestion() {
+        const current = questions[currentQuestionIndex];
+        answered = false;
+        feedbackEl.textContent = "";
+        nextBtn.hidden = true;
+
+        progressEl.textContent = `Pregunta ${currentQuestionIndex + 1}/${questions.length}`;
+        scoreEl.textContent = `Puntaje: ${score}`;
+        questionEl.textContent = current.prompt;
+
+        optionsEl.innerHTML = "";
+        current.options.forEach((option) => {
+          const button = document.createElement("button");
+          button.className = "option-btn";
+          button.type = "button";
+          button.textContent = option;
+          button.addEventListener("click", () => checkAnswer(button, option));
+          optionsEl.appendChild(button);
+        });
+      }
+
+      function checkAnswer(button, selected) {
+        if (answered) return;
+
+        answered = true;
+        const current = questions[currentQuestionIndex];
+        const optionButtons = Array.from(optionsEl.querySelectorAll("button"));
+        optionButtons.forEach((btn) => {
+          btn.disabled = true;
+          if (btn.textContent === current.answer) {
+            btn.classList.add("correct");
+          }
+          if (btn === button && selected !== current.answer) {
+            btn.classList.add("incorrect");
+          }
+        });
+
+        if (selected === current.answer) {
+          score += 1;
+          feedbackEl.textContent = "✅ ¡Correcto!";
+        } else {
+          feedbackEl.textContent = `❌ Incorrecto. La respuesta correcta es: ${current.answer}`;
+        }
+
+        scoreEl.textContent = `Puntaje: ${score}`;
+
+        if (currentQuestionIndex < questions.length - 1) {
+          nextBtn.hidden = false;
+        } else {
+          questionEl.textContent = gameCompleteMessage;
+          feedbackEl.textContent += ` Puntaje final: ${score}/${questions.length}`;
+          restartBtn.hidden = false;
+        }
+      }
+
+      nextBtn.addEventListener("click", () => {
+        currentQuestionIndex += 1;
+        renderQuestion();
+      });
+
+      restartBtn.addEventListener("click", () => {
+        currentQuestionIndex = 0;
+        score = 0;
+        restartBtn.hidden = true;
+        renderQuestion();
+      });
+
+      renderQuestion();
+    </script>
+  </body>
+</html>
