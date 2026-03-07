@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juego Interactivo de Inglés</title>
+    <title>Juego Interactivo: Elige la opción correcta</title>
     <style>
       :root {
         color-scheme: light;
@@ -197,14 +197,15 @@
           if (btn.textContent === current.answer) {
             btn.classList.add("correct");
           }
+          if (btn === button && selected !== current.answer) {
+            btn.classList.add("incorrect");
+          }
         });
 
         if (selected === current.answer) {
           score += 1;
-          button.classList.add("correct");
           feedbackEl.textContent = "✅ ¡Correcto!";
         } else {
-          button.classList.add("incorrect");
           feedbackEl.textContent = `❌ Incorrecto. La respuesta correcta es: ${current.answer}`;
         }
 
