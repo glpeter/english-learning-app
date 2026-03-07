@@ -103,7 +103,7 @@
   </head>
   <body>
     <main class="container">
-      <h1>Juego interactivo: Elige la opción correcta</h1>
+      <h1>Juego Interactivo: Elige la opción correcta</h1>
       <p>Practica inglés seleccionando la respuesta correcta en cada pregunta.</p>
 
       <section id="game" aria-live="polite">
@@ -159,6 +159,7 @@
       const feedbackEl = document.getElementById("feedback");
       const nextBtn = document.getElementById("nextBtn");
       const restartBtn = document.getElementById("restartBtn");
+      const GAME_FINISHED_MESSAGE = "¡Juego terminado!";
 
       let index = 0;
       let score = 0;
@@ -212,7 +213,7 @@
         if (index < questions.length - 1) {
           nextBtn.hidden = false;
         } else {
-          questionEl.textContent = "¡Juego terminado!";
+          questionEl.textContent = GAME_FINISHED_MESSAGE;
           feedbackEl.textContent += ` Puntaje final: ${score}/${questions.length}`;
           restartBtn.hidden = false;
         }
