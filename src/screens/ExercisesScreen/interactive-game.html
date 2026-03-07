@@ -159,19 +159,19 @@
       const feedbackEl = document.getElementById("feedback");
       const nextBtn = document.getElementById("nextBtn");
       const restartBtn = document.getElementById("restartBtn");
-      const GAME_FINISHED_MESSAGE = "¡Juego terminado!";
+      const gameCompleteMessage = "¡Juego terminado!";
 
-      let index = 0;
+      let currentQuestionIndex = 0;
       let score = 0;
       let answered = false;
 
       function renderQuestion() {
-        const current = questions[index];
+        const current = questions[currentQuestionIndex];
         answered = false;
         feedbackEl.textContent = "";
         nextBtn.hidden = true;
 
-        progressEl.textContent = `Pregunta ${index + 1}/${questions.length}`;
+        progressEl.textContent = `Pregunta ${currentQuestionIndex + 1}/${questions.length}`;
         scoreEl.textContent = `Puntaje: ${score}`;
         questionEl.textContent = current.prompt;
 
@@ -190,7 +190,7 @@
         if (answered) return;
 
         answered = true;
-        const current = questions[index];
+        const current = questions[currentQuestionIndex];
         const optionButtons = Array.from(optionsEl.querySelectorAll("button"));
         optionButtons.forEach((btn) => {
           btn.disabled = true;
@@ -211,22 +211,22 @@
 
         scoreEl.textContent = `Puntaje: ${score}`;
 
-        if (index < questions.length - 1) {
+        if (currentQuestionIndex < questions.length - 1) {
           nextBtn.hidden = false;
         } else {
-          questionEl.textContent = GAME_FINISHED_MESSAGE;
+          questionEl.textContent = gameCompleteMessage;
           feedbackEl.textContent += ` Puntaje final: ${score}/${questions.length}`;
           restartBtn.hidden = false;
         }
       }
 
       nextBtn.addEventListener("click", () => {
-        index += 1;
+        currentQuestionIndex += 1;
         renderQuestion();
       });
 
       restartBtn.addEventListener("click", () => {
-        index = 0;
+        currentQuestionIndex = 0;
         score = 0;
         restartBtn.hidden = true;
         renderQuestion();
